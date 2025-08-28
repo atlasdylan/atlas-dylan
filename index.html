@@ -4,26 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>atlas dylan</title>
-  <!-- Google Font for serif style -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      background-color: #fff; /* White background */
-      color: #000; /* Black text */
+      background-color: #fff;
+      color: #000;
       text-align: center;
     }
 
-    /* Header */
     h1 {
-      font-weight: 700; /* bold */
+      font-weight: 700;
       font-size: 3rem;
       margin: 20px 0;
-      color: #000; /* Ensure header is black */
+      color: #000;
     }
 
-    /* Gallery styling */
     .gallery {
       display: flex;
       flex-direction: column;
@@ -32,9 +30,9 @@
     }
 
     .gallery img {
-      width: 90%;           /* smaller images */
-      max-width: 800px;     /* smaller than before */
-      margin: 15px 0;       /* space between images */
+      width: 90%;
+      max-width: 800px;
+      margin: 15px 0;
       object-fit: cover;
       transition: transform 0.3s;
       cursor: pointer;
@@ -42,10 +40,9 @@
     }
 
     .gallery img:hover {
-      transform: scale(1.02); /* slightly bigger on hover */
+      transform: scale(1.02);
     }
 
-    /* Lightbox overlay */
     .lightbox {
       position: fixed;
       top: 0;
@@ -79,19 +76,16 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <h1>atlas dylan</h1>
 
-  <!-- Image gallery -->
   <div class="gallery">
-    <img src="\images\image 1.jpg" alt="Photo 1">
-    <img src="\images\image 2.jpg" alt="Photo 2">
-    <img src="\images\image 3.jpg" alt="Photo 3">
-    <img src="\images\image 4.jpg" alt="Photo 4">
-    <!-- Add more images here -->
+    <img src="images/image1.jpg" alt="Photo 1">
+    <img src="images/image2.jpg" alt="Photo 2">
+    <img src="images/image3.jpg" alt="Photo 3">
+    <img src="images/image4.jpg" alt="Photo 4">
+    <!-- Add more images in images/ folder -->
   </div>
 
-  <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged image">
   </div>
@@ -115,5 +109,3 @@
   </script>
 </body>
 </html>
-
-
