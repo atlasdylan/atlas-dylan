@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>atlas dylan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -14,14 +13,10 @@
       text-align: center;
     }
 
-    header {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    header .logo {
+    header img {
       max-width: 400px; 
-      height: auto;
+      margin: 20px auto;
+      display: block;
     }
 
     .gallery {
@@ -75,11 +70,22 @@
     html {
       scroll-behavior: smooth;
     }
+
+    .video-section {
+      margin: 30px 0;
+    }
+
+    .video-section video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 5px;
+      outline: none;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="atlas dylan logo" class="logo">
+    <img src="images/logo.png" alt="atlas dylan">
   </header>
 
   <div class="gallery">
@@ -87,6 +93,13 @@
     <img src="images/image2.jpg" alt="Photo 2">
     <img src="images/image3.jpg" alt="Photo 3">
     <img src="images/image4.jpg" alt="Photo 4">
+  </div>
+
+  <div class="video-section">
+    <video controls>
+      <source src="videos/video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <div class="lightbox" id="lightbox">
