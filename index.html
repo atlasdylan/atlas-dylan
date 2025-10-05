@@ -94,7 +94,7 @@
   </div>
 
   <div class="video-section">
-    <video controls>
+    <video id="video" controls>
       <source src="images/video2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -105,8 +105,6 @@
     <img src="images/image3.jpg" alt="Photo 3">
     <img src="images/image4.jpg" alt="Photo 4">
   </div>
-
-
 
   <div class="lightbox" id="lightbox">
     <img src="" alt="Enlarged image">
@@ -128,9 +126,25 @@
       lightbox.classList.remove('show');
       lightboxImg.src = '';
     });
+
+    // --- Generate video thumbnail from first second ---
+    const video = document.getElementById('video');
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = Math.min(1, video.duration / 2);
+    });
+
+    video.addEventListener('seeked', () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const thumbnail = canvas.toDataURL('image/png');
+      video.setAttribute('poster', thumbnail);
+
+      video.currentTime = 0;
+    });
   </script>
 </body>
 </html>
-
-
-
