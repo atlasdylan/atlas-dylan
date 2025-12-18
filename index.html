@@ -117,7 +117,6 @@
 
   <div class="gallery">
     <img src="images/image1.jpg" alt="Photo 1">
-    <img src="images/image5.jpg" alt="Photo 4">
   </div>
 
   <div class="video-section">
@@ -180,19 +179,9 @@
       video.currentTime = 0;
     });
 
-    // --- Play Button Logic ---
-    video.addEventListener('play', () => {
-      videoWrapper.classList.add('playing');
-    });
 
-    video.addEventListener('pause', () => {
-      videoWrapper.classList.remove('playing');
-    });
-
-    video.addEventListener('ended', () => {
-      videoWrapper.classList.remove('playing');
-    });
   </script>
 </body>
 </html>
+
 
