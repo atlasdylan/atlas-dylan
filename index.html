@@ -84,29 +84,7 @@
       border-radius: 5px;
       outline: none;
       object-fit: contain;
-      background-color: #fff;
-    }
-
-    /* Play Button Overlay */
-    .video-wrapper {
-      position: relative;
-      display: inline-block;
-    }
-
-    .video-wrapper::after {
-      content: '▶';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 80px;
-      color: rgba(255,255,255,0.8);
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-
-    .video-wrapper.playing::after {
-      opacity: 0;
+      background-color: #000;
     }
   </style>
 </head>
@@ -121,12 +99,10 @@
   </div>
 
   <div class="video-section">
-    <div class="video-wrapper">
-      <video id="video" controls>
-        <source src="images/video3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <video id="video" controls preload="auto" playsinline>
+      <source src="images/video3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
   <div class="gallery">  
@@ -160,18 +136,15 @@
       lightboxImg.src = '';
     });
 
-    // --- Video thumbnail generation (fixed) ---
+    // --- Generate poster from first video frame ---
     const video = document.getElementById('video');
-    const videoWrapper = document.querySelector('.video-wrapper');
-
     let posterGenerated = false;
 
     video.addEventListener('loadeddata', () => {
       if (posterGenerated) return;
       posterGenerated = true;
 
-      const captureTime = Math.min(1, video.duration / 2);
-      video.currentTime = captureTime;
+      video.currentTime = 0.01; // first visible frame (iOS-safe)
     });
 
     video.addEventListener('seeked', function handleSeek() {
@@ -184,21 +157,10 @@
 
       video.poster = canvas.toDataURL('image/png');
 
-      // Remove listener so playback is never interrupted
       video.removeEventListener('seeked', handleSeek);
       video.currentTime = 0;
-    });
-
-    // --- Play overlay behaviour ---
-    video.addEventListener('play', () => {
-      videoWrapper.classList.add('playing');
-    });
-
-    video.addEventListener('pause', () => {
-      videoWrapper.classList.remove('playing');
     });
   </script>
 
 </body>
 </html>
-
